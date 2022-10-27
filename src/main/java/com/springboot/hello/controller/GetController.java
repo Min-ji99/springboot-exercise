@@ -1,5 +1,6 @@
 package com.springboot.hello.controller;
 
+import com.springboot.hello.domain.dto.MemberDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -38,5 +39,10 @@ public class GetController {
             System.out.printf("key : %s value : %s", map.getKey(), map.getValue());
         });
         return "request2 호출되었습니다";
+    }
+
+    @GetMapping(value="/request3")
+    public String getRequestParam3(MemberDto memberDto){
+        return memberDto.toString();
     }
 }
