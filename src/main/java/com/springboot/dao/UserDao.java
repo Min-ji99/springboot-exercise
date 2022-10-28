@@ -24,11 +24,11 @@ public class UserDao {
         this.jdbcTemplate.update("insert into users(id, name, password) values (?, ?, ?)",
                 userRequestDto.getId(), userRequestDto.getName(), userRequestDto.getPassword());
     }
-    public void deleteAll(){
-        this.jdbcTemplate.update("delete from users");
+    public int deleteAll(){
+        return this.jdbcTemplate.update("delete from users");
     }
-    public void deleteById(String id){
-        this.jdbcTemplate.update("delete from users where id=?", id);
+    public int deleteById(String id){
+        return this.jdbcTemplate.update("delete from users where id=?", id);
     }
     public User findById(String id){
         RowMapper<User> rowMapper=new RowMapper<User>() {

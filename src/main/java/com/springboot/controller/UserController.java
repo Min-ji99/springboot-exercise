@@ -3,6 +3,7 @@ package com.springboot.controller;
 import com.springboot.dao.UserDao;
 import com.springboot.domain.User;
 import com.springboot.domain.dto.UserRequestDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,27 +14,23 @@ public class UserController {
     public UserController(UserDao userDao){
         this.userDao=userDao;
     }
-    @GetMapping("/")
-    public String hello(){
-        return "hello";
-    }
-    @GetMapping("/{variable}")
-    public User findById(@RequestParam String id){
+    @GetMapping("/{id}")
+    public User getId(@PathVariable("id") String id){
         return userDao.findById(id);
     }
     @PostMapping("/add")
     public void add(){
-        //이 부분 맞나요..???
         userDao.add(new UserRequestDto("1", "minji", "1234"));
+        System.out.println("등록되었습니다.a");
     }
 
-    @DeleteMapping("/delete/{variable}")
-    public void deleteById(@RequestParam String id){
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable("id") String id){
         userDao.deleteById(id);
     }
 
     @DeleteMapping("/delete/all")
-    public void deleteAll(){
+    public void deleteAll() {
         userDao.deleteAll();
     }
 }
