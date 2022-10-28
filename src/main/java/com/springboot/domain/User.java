@@ -1,4 +1,4 @@
-package com.springboot.domain.dto;
+package com.springboot.domain;
 
 public class User {
     private String name;
