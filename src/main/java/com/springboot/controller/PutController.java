@@ -1,6 +1,6 @@
-package com.springboot.hello.controller;
+package com.springboot.controller;
 
-import com.springboot.hello.domain.dto.MemberDto;
+import com.springboot.domain.dto.MemberDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
