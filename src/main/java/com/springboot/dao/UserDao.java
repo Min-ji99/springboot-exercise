@@ -21,7 +21,7 @@ public class UserDao {
     }
 
     public void add(final UserRequestDto userRequestDto){
-        this.jdbcTemplate.update("insert into users(id, email, password) values (?, ?, ?)",
+        this.jdbcTemplate.update("insert into users(id, name, password) values (?, ?, ?)",
                 userRequestDto.getId(), userRequestDto.getName(), userRequestDto.getPassword());
     }
     public void deleteAll(){
