@@ -18,12 +18,16 @@ public class UserController {
     public User getId(@PathVariable("id") String id){
         return userDao.findById(id);
     }
-    @PostMapping("/add")
+    @PostMapping("/add/1")
     public void add(){
         userDao.add(new UserRequestDto("1", "minji", "1234"));
         System.out.println("등록되었습니다.a");
     }
-
+    @PostMapping("/add")
+    public void addBody(@RequestBody UserRequestDto userRequestDto){
+        userDao.add(userRequestDto);
+        System.out.println(userRequestDto.getName()+"이 등록되었습니다");
+    }
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable("id") String id){
         userDao.deleteById(id);
